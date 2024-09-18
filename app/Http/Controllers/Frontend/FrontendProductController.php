@@ -29,8 +29,8 @@ class FrontendProductController extends Controller
             ])
             ->when($request->has('range'), function($query) use ($request){
                 $price = explode(';', $request->range);
-                $from = $price[0];
-                $to = $price[1];
+                $from = $price[0]?? 0;
+                $to = $price[1] ?? PHP_INT_MAX;
 
                 return $query->where('price', '>=', $from)->where('price', '<=', $to);
             })
@@ -46,8 +46,8 @@ class FrontendProductController extends Controller
             ])
             ->when($request->has('range'), function($query) use ($request){
                 $price = explode(';', $request->range);
-                $from = $price[0];
-                $to = $price[1];
+                $from = $price[0]?? 0;
+                $to = $price[1] ?? PHP_INT_MAX;
 
                 return $query->where('price', '>=', $from)->where('price', '<=', $to);
             })
@@ -64,8 +64,8 @@ class FrontendProductController extends Controller
             ])
             ->when($request->has('range'), function($query) use ($request){
                 $price = explode(';', $request->range);
-                $from = $price[0];
-                $to = $price[1];
+                $from = $price[0]?? 0;
+                $to = $price[1] ?? PHP_INT_MAX;
 
                 return $query->where('price', '>=', $from)->where('price', '<=', $to);
             })
@@ -82,8 +82,8 @@ class FrontendProductController extends Controller
             ])
             ->when($request->has('range'), function($query) use ($request){
                 $price = explode(';', $request->range);
-                $from = $price[0];
-                $to = $price[1];
+                $from = $price[0]?? 0;
+                $to = $price[1] ?? PHP_INT_MAX;
 
                 return $query->where('price', '>=', $from)->where('price', '<=', $to);
             })

@@ -16,7 +16,7 @@ $popularCategorySection = json_decode($popularCategorySection->value);
                         <div class="form-group">
                             <label>Category</label>
                             <select name="cat_one" class="form-control main-category">
-                                <option value="">Select</option>
+                                <option value="0">Select</option>
                                 @foreach ($categories as $category)
                                     <option {{$category->id == $popularCategorySection[0]->category ? 'selected' : ''}} value="{{ $category->id }}">{{ $category->name }}</option>
                                     {{--<option value="{{$category->id}}">{{ $category->name }}</option>--}}
@@ -32,7 +32,7 @@ $popularCategorySection = json_decode($popularCategorySection->value);
                             @endphp
                             <label>Sub Category</label>
                             <select name="sub_cat_one" id="" class="form-control sub-category">
-                                <option value="">select</option>
+                                <option value="0">select</option>
                                 @foreach ($subCategories as $subCategory)
                                 <option {{$subCategory->id == $popularCategorySection[0]->sub_category ? 'selected' : ''}} value="{{$subCategory->id}}">{{ $subCategory->name }}</option>
                             
@@ -48,7 +48,7 @@ $popularCategorySection = json_decode($popularCategorySection->value);
                             @endphp
                             <label>Child Category</label>
                             <select name="child_cat_one" id="" class="form-control child-category">
-                                <option value="">select</option>
+                                <option value="0">select</option>
                                 @foreach ($childCategories as $childCategory)
                                     <option {{$childCategory->id == $popularCategorySection[0]->child_category ? 'selected' : ''}} value="{{$childCategory->id}}">{{ $childCategory->name }}</option>
                                     
@@ -66,7 +66,7 @@ $popularCategorySection = json_decode($popularCategorySection->value);
                         <div class="form-group">
                             <label>Category</label>
                             <select name="cat_two" id="" class="form-control main-category">
-                                <option value="">Select</option>
+                                <option value="0">Select</option>
                                 @foreach ($categories as $category)
                                 {{-- --}}
                                     <option {{$category->id == $popularCategorySection[1]->category ? 'selected' : ''}} value="{{ $category->id }}">{{ $category->name }}</option>
@@ -82,7 +82,7 @@ $popularCategorySection = json_decode($popularCategorySection->value);
                            @endphp
                             <label>Sub Category</label>
                             <select name="sub_cat_two" id="" class="form-control sub-category">
-                                <option value="">select</option>
+                                <option value="0">select</option>
                                 @foreach ($subCategories as $subCategory)
                                 <option {{$subCategory->id == $popularCategorySection[1]->sub_category ? 'selected' : ''}} value="{{$subCategory->id}}">{{ $subCategory->name }}</option>
                                 
@@ -98,7 +98,7 @@ $popularCategorySection = json_decode($popularCategorySection->value);
                             @endphp
                             <label>Child Category</label>
                             <select name="child_cat_two" id="" class="form-control child-category">
-                                <option value="">select</option>
+                                <option value="0">select</option>
                                 @foreach ($childCategories as $childCategory)
                                 
                                 <option {{$childCategory->id == $popularCategorySection[1]->child_category ? 'selected' : ''}} value="{{$childCategory->id}}">{{ $childCategory->name }}</option>
@@ -115,7 +115,7 @@ $popularCategorySection = json_decode($popularCategorySection->value);
                         <div class="form-group">
                             <label>Category</label>
                             <select name="cat_three" id="" class="form-control main-category">
-                                <option value="">Select</option>
+                                <option value="0">Select</option>
                                 @foreach ($categories as $category)
                                     <option {{$category->id == $popularCategorySection[2]->category ? 'selected' : ''}} value="{{ $category->id }}">{{ $category->name }}</option>
                                     
@@ -130,7 +130,7 @@ $popularCategorySection = json_decode($popularCategorySection->value);
                            @endphp
                             <label>Sub Category</label>
                             <select name="sub_cat_three" id="" class="form-control sub-category">
-                                <option value="">select</option>
+                                <option value="0">select</option>
                                 @foreach ($subCategories as $subCategory)
                                 <option {{$subCategory->id == $popularCategorySection[2]->sub_category ? 'selected' : ''}} value="{{$subCategory->id}}">{{ $subCategory->name }}</option>
                                 @endforeach
@@ -145,7 +145,7 @@ $popularCategorySection = json_decode($popularCategorySection->value);
                             @endphp
                             <label>Child Category</label>
                             <select name="child_cat_three" id="" class="form-control child-category">
-                                <option value="">select</option>
+                                <option value="0">select</option>
                                 @foreach ($childCategories as $childCategory)
                                 
                                 <option {{$childCategory->id == $popularCategorySection[2]->child_category ? 'selected' : ''}} value="{{$childCategory->id}}">{{ $childCategory->name }}</option>
@@ -161,7 +161,7 @@ $popularCategorySection = json_decode($popularCategorySection->value);
                         <div class="form-group">
                             <label>Category</label>
                             <select name="cat_four" id="" class="form-control main-category">
-                                <option value="">Select</option>
+                                <option value="0">Select</option>
                                 @foreach ($categories as $category)
                                     <option {{$category->id == $popularCategorySection[3]->category ? 'selected' : ''}} value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
@@ -176,7 +176,7 @@ $popularCategorySection = json_decode($popularCategorySection->value);
                            @endphp
                             <label>Sub Category</label>
                             <select name="sub_cat_four" id="" class="form-control sub-category">
-                                <option value="">select</option>
+                                <option value="0">select</option>
                                 @foreach ($subCategories as $subCategory)
                                 
                                 <option {{$subCategory->id == $popularCategorySection[3]->sub_category ? 'selected' : ''}} value="{{$subCategory->id}}">{{ $subCategory->name }}</option>
@@ -192,7 +192,7 @@ $popularCategorySection = json_decode($popularCategorySection->value);
                             @endphp
                             <label>Child Category</label>
                             <select name="child_cat_four" id="" class="form-control child-category">
-                                <option value="">select</option>
+                                <option value="0">select</option>
                                 @foreach ($childCategories as $childCategory)
                                 <option {{$childCategory->id == $popularCategorySection[3]->child_category ? 'selected' : ''}} value="{{$childCategory->id}}">{{ $childCategory->name }}</option>
                                 @endforeach

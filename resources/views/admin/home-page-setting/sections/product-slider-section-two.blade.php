@@ -14,7 +14,7 @@
                         <div class="form-group">
                             <label>Category</label>
                             <select name="cat_one" class="form-control main-category">
-                                <option value="">Select</option>
+                                <option value="0">Select</option>
                                 @foreach ($categories as $category)
                                     <option {{ $category->id == $sliderSectionTwo->category ? 'selected' : '' }}
                                         value="{{ $category->id }}">{{ $category->name }}</option>
@@ -30,7 +30,7 @@
 
                             <label>Sub Category</label>
                             <select name="sub_cat_one" id="" class="form-control sub-category">
-                                <option value="">select</option>
+                                <option value="0">select</option>
                                 @foreach ($subCategories as $subCategory)
                                     <option {{ $subCategory->id == $sliderSectionTwo->sub_category ? 'selected' : '' }}
                                         value="{{ $subCategory->id }}">{{ $subCategory->name }}</option>

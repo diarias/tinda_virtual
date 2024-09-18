@@ -118,7 +118,7 @@ class ChildCategoryController extends Controller
     {
         $childCategory = ChildCategory::findOrFail($id);
         if(Product::where('child_category_id', $childCategory->id)->count() > 0){
-            return response(['status' => 'error', 'message' => 'This item contain relation can\'t delete it.']);
+            return response(['status' => 'error', 'message' => 'Este elemento contiene una relación. No se puede eliminar.']);
         }
         $homeSettings = HomePageSetting::all();
 
@@ -132,7 +132,7 @@ class ChildCategoryController extends Controller
 
         $childCategory->delete();
 
-        return response(['status' => 'success', 'message' => 'Deleted Successfully!']);
+        return response(['status' => 'success', 'message' => 'Borrado exitosamente!']);
     }
 
     public function changeStatus(Request $request){

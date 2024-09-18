@@ -1,12 +1,18 @@
+{{--
+
 <nav class="navbar navbar-expand-lg main-navbar">
   <form class="form-inline mr-auto">
     <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
-      
+
     
     <ul class="navbar-nav mr-3">
-            {{-- <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
+--}}
+
+{{-- <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
         <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li> --}}
-        </ul>
+
+{{--
+      </ul>
     </form>
     <ul class="navbar-nav navbar-right">
         {{-- <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle beep"><i class="far fa-envelope"></i></a>
@@ -74,8 +80,8 @@
             <a href="#">View All <i class="fas fa-chevron-right"></i></a>
           </div>
         </div> --}}
-        {{-- </li> --}}
-        {{-- <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="far fa-bell"></i></a>
+{{-- </li> --}}
+{{-- <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="far fa-bell"></i></a>
         <div class="dropdown-menu dropdown-list dropdown-menu-right">
           <div class="dropdown-header">Notifications
             <div class="float-right">
@@ -134,29 +140,88 @@
           </div>
         </div>
       </li> --}}
+
+
+{{--
       <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
         <img alt="image" src="{{ asset(auth()->user()->image) }}" class="rounded-circle mr-1">
-                <div class="d-sm-none d-lg-inline-block">{{ auth()->user()->name }}</div>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right">
-                <div class="dropdown-title">Logged in 5 min ago</div>
-                <a href="{{ route('admin.profile') }}" class="dropdown-item has-icon">
-                    <i class="far fa-user"></i> Perfil
+<div class="d-sm-none d-lg-inline-block">{{ auth()->user()->name }}</div>
+</a>
+<div class="dropdown-menu dropdown-menu-right">
+  <div class="dropdown-title">Logged in 5 min ago</div>
+  <a href="{{ route('admin.profile') }}" class="dropdown-item has-icon">
+    <i class="far fa-user"></i> Perfil
+  </a>
+  <a href="{{ route('admin.settings.index') }}" class="dropdown-item has-icon">
+    <i class="fas fa-cog"></i> Configuraciones
+  </a>
+  <div class="dropdown-divider"></div>
+  <!-- Authentication -->
+
+  <form action="{{ route('logout') }}" method="POST">
+    @csrf
+    <button type="submit" class="dropdown-item has-icon text-danger"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</button>
+  </form>
+
+
+</div>
+</li>
+</ul>
+
+</nav>
+
+
+--}}
+
+
+<nav class="app-header navbar navbar-expand bg-body">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li class="nav-item"> <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button"> <i class="bi bi-list"></i> </a> </li>
+      {{--
+       <li class="nav-item d-none d-md-block"> <a href="#" class="nav-link">Inicio</a> </li>
+        <li class="nav-item d-none d-md-block"> <a href="#" class="nav-link">Contactos</a> </li>
+    --}}
+    </ul>
+    <ul class="navbar-nav ms-auto"> <!--begin::Navbar Search-->
+      <li class="nav-item"> <a class="nav-link" href="#" data-lte-toggle="fullscreen"> <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i> <i data-lte-icon="minimize" class="bi bi-fullscreen-exit" style="display: none;"></i> </a> </li> <!--end::Fullscreen Toggle--> <!--begin::User Menu Dropdown-->
+      <li class="nav-item dropdown user-menu"> <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"> <img src="{{ asset(auth()->user()->image) }}" class="user-image rounded-circle shadow" alt="User Image"> <span class="d-none d-md-inline">{{ auth()->user()->name }}</span> </a>
+        <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end"> <!--begin::User Image-->
+          <li class="user-header text-bg-primary"> <img src="{{ asset(auth()->user()->image) }}" class="rounded-circle shadow" alt="User Image">
+            <p>
+              Perfil de usuario
+            </p>
+          </li>
+          <li class="user-body">
+            <div class="row align-items-center">
+              <div class="col-12 text-left">
+                <a href="{{ route('admin.settings.index') }}" class="text-secondary">
+                  <i class="fa fa-cog fa-lg" aria-hidden="true"></i>
+                  Configuraciones
                 </a>
-                <a href="{{ route('admin.settings.index') }}" class="dropdown-item has-icon">
-                    <i class="fas fa-cog"></i> Configuraciones
+              </div>
+            </div>
+          </li>
+          <li class="user-body">
+            <div class="row align-items-center">
+              <div class="col-12 text-left">
+                <a href="{{ route('admin.profile') }}" class="text-secondary">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  Perfil
                 </a>
-                <div class="dropdown-divider"></div>
-                <!-- Authentication -->
-          
+              </div>
+            </div>
+          </li>
+          <li class="user-footer d-flex justify-content-between">
+            <span>
               <form action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button type="submit" class="dropdown-item has-icon text-danger"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</button>
-            </form>
-              
-
-            </div>
-        </li>
+              </form>
+            </span>
+          </li>
+        </ul>
+      </li>
     </ul>
-
+  </div>
 </nav>

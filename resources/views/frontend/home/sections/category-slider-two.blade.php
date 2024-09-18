@@ -8,25 +8,34 @@
         }
         $lastKey = [$key => $category];
     }
+    $category = null;
+    $products = collect(); // Crear una colección vacía por defecto
 
     if(array_keys($lastKey)[0] === 'category'){
         $category = \App\Models\Category::find($lastKey['category']);
-        $products = \App\Models\Product::withAvg('reviews', 'rating')->withCount('reviews')
-        ->with(['variants', 'category', 'productImageGalleries'])
-        ->where('category_id', $category->id)->orderBy('id', 'DESC')->take(12)->get();
-    }elseif(array_keys($lastKey)[0] === 'sub_category'){
+        if ($category) {
+            $products = \App\Models\Product::withAvg('reviews', 'rating')->withCount('reviews')
+            ->with(['variants', 'category', 'productImageGalleries'])
+            ->where('category_id', $category->id)->orderBy('id', 'DESC')->take(12)->get();
+        }
+    } elseif(array_keys($lastKey)[0] === 'sub_category'){
         $category = \App\Models\SubCategory::find($lastKey['sub_category']);
-        $products = \App\Models\Product::withAvg('reviews', 'rating')->withCount('reviews')
-        ->with(['variants', 'category', 'productImageGalleries'])
-        ->where('sub_category_id', $category->id)->orderBy('id', 'DESC')->take(12)->get();
-
-    }else {
+        if ($category) {
+            $products = \App\Models\Product::withAvg('reviews', 'rating')->withCount('reviews')
+            ->with(['variants', 'category', 'productImageGalleries'])
+            ->where('sub_category_id', $category->id)->orderBy('id', 'DESC')->take(12)->get();
+        }
+    } elseif(array_keys($lastKey)[0] === 'child_category'){
         $category = \App\Models\ChildCategory::find($lastKey['child_category']);
-        $products = \App\Models\Product::withAvg('reviews', 'rating')->withCount('reviews')
-        ->with(['variants', 'category', 'productImageGalleries'])
-        ->where('child_category_id', $category->id)->orderBy('id', 'DESC')->take(12)->get();
+        if ($category) {
+            $products = \App\Models\Product::withAvg('reviews', 'rating')->withCount('reviews')
+            ->with(['variants', 'category', 'productImageGalleries'])
+            ->where('child_category_id', $category->id)->orderBy('id', 'DESC')->take(12)->get();
+        }
     }
 @endphp
+
+@if ($category)
 <section id="wsus__electronic">
     <div class="container">
         <div class="row">
@@ -44,4 +53,4 @@
         </div>
     </div>
 </section>
-
+@endif
